@@ -144,8 +144,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #007bff;
+  padding: 5px 20px;
+  background-color: #007bff; 
   color: white;
 }
 
@@ -166,7 +166,7 @@
 
 .boards-container {
   max-width: 600px;
-  margin: 20px auto;
+  margin: 40px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 20px;
@@ -177,5 +177,77 @@
   /* Additional styling for the no boards message */
 }
 
+/* Add these styles to your App.css */
+
+.create-board-input {
+  width: 80%; /* Adjust width as needed */
+  padding: 10px;
+  margin: 20px auto; /* Center the input field */
+  display: block; /* Make it a block element */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.create-board-btn {
+  width: 80%; /* Align width with input field */
+  padding: 10px;
+  margin: 0 auto; /* Center the button */
+  display: block; /* Make it a block element */
+  background-color: #007bff; /* Theme color */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.create-board-btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.create-board-input {
+  width: 80%; /* Adjust width as needed */
+  padding: 10px;
+  margin: 20px auto; /* Center the input field */
+  display: block; /* Make it a block element */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.create-board-btn {
+  width: 80%; /* Align width with input field */
+  padding: 10px;
+  margin: 0 auto; /* Center the button */
+  display: block; /* Make it a block element */
+  background-color: #007bff; /* Theme color */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.create-board-btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+.board-bar {
+  background-color: #f0f0f0; /* Light grey background, adjust as needed */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Additional styling as needed */
+}
+
+.create-board-section {
+  margin-top: 20px; /* Space above the create board section */
+}
+
+.no-boards {
+  text-align: center;
+  margin-top: 20px;
+}
 
 

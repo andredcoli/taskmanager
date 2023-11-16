@@ -1,20 +1,22 @@
+// LoginForm.js
 import React from 'react';
 
-const LoginForm = ({ onLogin }) => {
-    // You can add state and form handlers here
-
+const LoginForm = ({ onLogin, onSwitchToRegister }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Handle the login submission
         onLogin(/* credentials */);
     };
 
     return (
-        <form className="login-panel" onSubmit={handleSubmit}>
-            <input type="text" className="form-control" placeholder="Username" />
-            <input type="password" className="form-control" placeholder="Password" />
-            <button type="submit" className="login-btn">Login</button>
-        </form>
+        <div className="login-panel">
+            <h2 className="form-title">Login</h2>
+            <form onSubmit={handleSubmit}>
+                <input type="text" className="form-control" placeholder="Username" />
+                <input type="password" className="form-control" placeholder="Password" />
+                <button type="submit" className="login-btn">Login</button>
+            </form>
+            <button onClick={onSwitchToRegister} className="switch-btn">Sign Up</button>
+        </div>
     );
 };
 

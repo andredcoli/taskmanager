@@ -1,22 +1,23 @@
 // RegistrationForm.js
 import React from 'react';
 
-const RegistrationForm = ({ onRegister }) => {
-    // You can add state and form handlers here
-
+const RegistrationForm = ({ onRegister, onSwitchToLogin }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Handle the registration submission
         onRegister(/* registration data */);
     };
 
     return (
-        <form className="registration-panel" onSubmit={handleSubmit}>
-            <input type="text" className="form-control" placeholder="Username" />
-            <input type="password" className="form-control" placeholder="Password" />
-            <input type="password" className="form-control" placeholder="Confirm Password" />
-            <button type="submit" className="register-btn">Register</button>
-        </form>
+        <div className="registration-panel">
+            <h2 className="form-title">Sign Up</h2>
+            <form onSubmit={handleSubmit}>
+                <input type="text" className="form-control" placeholder="Username" />
+                <input type="password" className="form-control" placeholder="Password" />
+                <input type="password" className="form-control" placeholder="Confirm Password" />
+                <button type="submit" className="register-btn">Register</button>
+            </form>
+            <button onClick={onSwitchToLogin} className="switch-btn">Log In</button>
+        </div>
     );
 };
 

@@ -1,6 +1,7 @@
+// App.js
 import React, { useState } from 'react';
 import LoginPage from './components/LoginPage';
-import Board from './components/Board';
+import YourBoards from './components/YourBoards';
 import './App.css';
 
 function App() {
@@ -21,10 +22,7 @@ function App() {
   return (
     <div className="App">
       {user ? (
-        <>
-          <button onClick={handleLogout}>Logout</button>
-          <Board />
-        </>
+        <YourBoards onLogout={handleLogout} /> 
       ) : (
         <LoginPage onLogin={handleLogin} />
       )}
