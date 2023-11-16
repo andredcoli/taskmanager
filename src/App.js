@@ -1,21 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
+import LoginPage from './components/LoginPage';
 import Board from './components/Board';
-import TopBar from './components/TopBar';
 import './App.css';
 
 function App() {
-  const createNewBoard = () => {
-    console.log('Create New Board');
+  const [user, setUser] = useState(null); // User state to manage login status
+
+  // Example login handler (to be replaced with actual authentication logic)
+  const handleLogin = (credentials) => {
+    console.log('Login credentials:', credentials);
+    // Placeholder for authentication logic
+    setUser({ name: 'Logged In User' });
   };
 
-  const deleteBoard = () => {
-    console.log('Delete Board');
+  // Example logout handler
+  const handleLogout = () => {
+    setUser(null);
   };
 
   return (
     <div className="App">
-      <TopBar createNewBoard={createNewBoard} deleteBoard={deleteBoard} />
-      <Board />
+      {user ? (
+        <>
+          <button onClick={handleLogout}>Logout</button>
+          <Board />
+        </>
+      ) : (
+        <LoginPage onLogin={handleLogin} />
+      )}
     </div>
   );
 }
