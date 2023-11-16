@@ -217,37 +217,50 @@
 }
 
 .create-board-btn {
-  width: 80%; /* Align width with input field */
+  width: 80%; 
   padding: 10px;
-  margin: 0 auto; /* Center the button */
-  display: block; /* Make it a block element */
-  background-color: #007bff; /* Theme color */
-  color: white; /* Text color */
+  margin: 0 auto; 
+  display: block; 
+  background-color: #007bff; 
+  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  transition: background-color 0.3s ease; 
 }
 
 .create-board-btn:hover {
-  background-color: #0056b3; /* Darker shade on hover */
+  background-color: #0056b3; 
 }
 .board-bar {
-  background-color: #f0f0f0; /* Light grey background, adjust as needed */
+  background-color: #f0f0f0;
   padding: 10px;
   margin: 10px 0;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Additional styling as needed */
+  
 }
 
 .create-board-section {
-  margin-top: 20px; /* Space above the create board section */
+  margin-top: 20px; 
 }
 
 .no-boards {
   text-align: center;
   margin-top: 20px;
+}
+
+.board-bar {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+}
+
+.board-bar:hover {
+  background-color: #e9e9e9;
 }
 
 
