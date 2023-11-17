@@ -7,7 +7,7 @@ const YourBoards = ({ onLogout }) => {
 
     const handleCreateBoard = () => {
         if (newBoardTitle && boards.length < 5) {
-            setBoards([...boards, { id: Date.now(), title: newBoardTitle }]);
+            setBoards([...boards, { id: Date.now().toString(), title: newBoardTitle }]);
             setNewBoardTitle(""); // Reset input field
         }
     };
@@ -36,7 +36,7 @@ const YourBoards = ({ onLogout }) => {
                         ref={provided.innerRef}
                     >
                         {boards.map((board, index) => (
-                            <Draggable key={board.id} draggableId={board.id.toString()} index={index}>
+                            <Draggable key={board.id} draggableId={board.id} index={index}>
                                 {(provided) => (
                                     <div
                                         ref={provided.innerRef}
