@@ -8,7 +8,7 @@ const YourBoards = ({ onLogout }) => {
     const handleCreateBoard = () => {
         if (newBoardTitle && boards.length < 5) {
             setBoards([...boards, { id: Date.now().toString(), title: newBoardTitle }]);
-            setNewBoardTitle(""); // Reset input field
+            setNewBoardTitle("");
         }
     };
 
@@ -53,7 +53,7 @@ const YourBoards = ({ onLogout }) => {
                     </div>
                 )}
             </Droppable>
-            {boards.length < 5 && (
+            {boards.length < 5 ? (
                 <div className="create-board-section">
                     <input 
                         type="text" 
@@ -69,6 +69,8 @@ const YourBoards = ({ onLogout }) => {
                         Create new board
                     </button>
                 </div>
+            ) : (
+                <p className="max-boards-msg">You have reached the maximum amount of boards</p>
             )}
         </DragDropContext>
     );
