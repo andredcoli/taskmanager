@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const YourBoards = ({ onLogout }) => {
     const [boards, setBoards] = useState([]);
@@ -6,43 +7,72 @@ const YourBoards = ({ onLogout }) => {
 
     const handleCreateBoard = () => {
         if (newBoardTitle && boards.length < 5) {
-            setBoards([...boards, { id: Date.now(), title: newBoardTitle }]);
-            setNewBoardTitle(""); // Reset input field
+            setBoards([...boards, { id: Date.now().toString(), title: newBoardTitle }]);
+            setNewBoardTitle("");
         }
     };
 
+    const onDragEnd = (result) => {
+        if (!result.destination) return;
+
+        const items = Array.from(boards);
+        const [reorderedItem] = items.splice(result.source.index, 1);
+        items.splice(result.destination.index, 0, reorderedItem);
+
+        setBoards(items);
+    };
+
     return (
-        <div>
+        <DragDropContext onDragEnd={onDragEnd}>
             <div className="top-bar">
                 <h1>Your Boards</h1>
                 <button onClick={onLogout} className="logout-btn">Logout</button>
             </div>
-            <div className="boards-container">
-                {boards.map(board => (
-                    <div key={board.id} className="board-bar">
-                        {board.title}
-                    </div>
-                ))}
-                {boards.length < 5 && (
-                    <div className="create-board-section">
-                        <input 
-                            type="text" 
-                            className="create-board-input"
-                            value={newBoardTitle}
-                            onChange={(e) => setNewBoardTitle(e.target.value)}
-                            placeholder="Enter board name" 
-                        />
-                        <button 
-                            onClick={handleCreateBoard}
-                            className="create-board-btn"
-                        >
-                            Create new board
-                        </button>
+            <Droppable droppableId="boards">
+                {(provided) => (
+                    <div
+                        className="boards-container"
+                        {...provided.droppableProps}
+                        ref={provided.innerRef}
+                    >
+                        {boards.map((board, index) => (
+                            <Draggable key={board.id} draggableId={board.id} index={index}>
+                                {(provided) => (
+                                    <div
+                                        ref={provided.innerRef}
+                                        {...provided.draggableProps}
+                                        {...provided.dragHandleProps}
+                                        className="board-bar"
+                                    >
+                                        {board.title}
+                                    </div>
+                                )}
+                            </Draggable>
+                        ))}
+                        {provided.placeholder}
                     </div>
                 )}
-                {boards.length === 0 && <p className="no-boards">You currently have no boards</p>}
-            </div>
-        </div>
+            </Droppable>
+            {boards.length < 5 ? (
+                <div className="create-board-section">
+                    <input 
+                        type="text" 
+                        className="create-board-input"
+                        value={newBoardTitle}
+                        onChange={(e) => setNewBoardTitle(e.target.value)}
+                        placeholder="Enter board name" 
+                    />
+                    <button 
+                        onClick={handleCreateBoard}
+                        className="create-board-btn"
+                    >
+                        Create new board
+                    </button>
+                </div>
+            ) : (
+                <p className="max-boards-msg">You have reached the maximum amount of boards</p>
+            )}
+        </DragDropContext>
     );
 };
 
