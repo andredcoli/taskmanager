@@ -1,4 +1,3 @@
-// RegistrationForm.js
 import React from 'react';
 
 const RegistrationForm = ({ onRegister, onSwitchToLogin }) => {
