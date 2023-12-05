@@ -1,21 +1,15 @@
-import React, { useState } from 'react';
-import Card from './Card'; 
+import React from 'react';
+import Card from './Card'; // Import your Card component
 
-const List = ({ list }) => {
-  const [cards, setCards] = useState(list.cards);
-
-  const addCard = () => {
-    const newCard = { id: Date.now(), content: 'New Card' };
-    setCards([...cards, newCard]);
-  };
-
+const List = ({ list, onAddCard }) => {
   return (
-    <div>
+    <div className="list">
       <h3>{list.title}</h3>
-      <button onClick={addCard}>Add Card</button>
-      {cards.map(card => (
+      {/* Render cards here */}
+      {list.cards.map(card => (
         <Card key={card.id} card={card} />
       ))}
+      <button onClick={() => onAddCard(list.id)}>Add New Card</button>
     </div>
   );
 };
