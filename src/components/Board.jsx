@@ -20,6 +20,7 @@ const Board = () => {
       return list;
     }));
   };
+  //
 
   const handleAddList = () => {
     if (newListTitle.trim()) { // Check if the title is not just empty spaces
