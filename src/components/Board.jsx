@@ -3,6 +3,8 @@ import List from './List';
 
 const Board = () => {
   const [lists, setLists] = useState([]);
+  const [isAddingList, setIsAddingList] = useState(false); // New state to track adding list mode
+  const [newListTitle, setNewListTitle] = useState("");
 
   const addList = () => {
     const newList = { id: Date.now(), title: `List ${lists.length + 1}`, cards: [] };
@@ -19,14 +21,40 @@ const Board = () => {
     }));
   };
 
+  const handleAddList = () => {
+    if (newListTitle.trim()) { // Check if the title is not just empty spaces
+      const newList = { id: Date.now(), title: newListTitle, cards: [] };
+      setLists([...lists, newList]);
+      setNewListTitle("");
+    }
+    setIsAddingList(false); // Reset back to not adding list mode
+  };
+  
+
   return (
     <div className="board">
       {lists.map(list => (
         <List key={list.id} list={list} onAddCard={addCardToList} />
       ))}
-      <button onClick={addList} className="add-list-btn">Add New List</button>
+  
+      {isAddingList ? (
+        <div>
+          <input
+            type="text"
+            value={newListTitle}
+            onChange={(e) => setNewListTitle(e.target.value)}
+            placeholder="Enter list name"
+          />
+          <button onClick={handleAddList}>Add List</button>
+        </div>
+      ) : (
+        <button onClick={() => setIsAddingList(true)} className="add-list-btn">
+          Add New List
+        </button>
+      )}
     </div>
   );
-};
+      }
+  
 
 export default Board;
