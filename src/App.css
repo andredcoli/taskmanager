@@ -48,10 +48,10 @@
   background-color: rgba(0, 123, 255, 0.7);
   border: 2px solid rgba(0, 123, 255, 0.7);
   color: #ffffff; 
-  padding: 8px 60px; 
+  padding: 5px 20px; 
   font-size: 15px;
   cursor: pointer;
-  margin: 5px;
+  margin: 20px;
   transition: background-color 0.3s, color 0.3s; 
   align-self: flex-start;
   border-radius: 15px; 
@@ -62,7 +62,25 @@
   color: white;
 }
 
+.list-input {
+  margin: 12px;
+  margin-right: 2px;
+  padding: 6px;
+  margin-bottom: 4px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  width: 50%; /* Adjust the width as needed */
+}
 
+.add-list-confirm-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
 /* LoginPage */
 
@@ -239,3 +257,74 @@
 }
 
 
+/* List & Card 
+
+/* Styling for the list container */
+.list {
+  background-color: #f8f9fa; /* Light background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Drop shadow */
+  padding: 15px; /* Padding inside the container */
+  margin: 10px; /* Margin around the list */
+  width: 200px; /* Fixed width */
+  max-height: 200px; /* Maximum height */
+  overflow-y: auto; /* Enable scrolling */
+}
+
+/* Styling for individual cards */
+.card {
+  background-color: #fff; /* White background for cards */
+  border-radius: 4px; /* Slightly rounded corners for cards */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+  margin-bottom: 10px; /* Space between cards */
+  padding: 10px; /* Padding inside cards */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Styling for the add card input and button */
+.add-card-input, .add-card-btn {
+  width: 100%; /* Full width */
+  padding: 8px; /* Comfortable padding */
+  margin: 5px 0; /* Margin around the element */
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.add-card-btn {
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.add-card-btn:hover {
+  background-color: #0069d9; /* Slightly darker blue on hover */
+}
+
+/* Styling for the card details panel */
+.card-details {
+  background-color: #e2e6ea; /* Light gray background */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Drop shadow */
+  padding: 10px; /* Padding inside the panel */
+  margin-top: 10px; /* Space above the panel */
+}
+
+/* Styling for the description textarea */
+.card-description {
+  width: 100%; /* Full width */
+  height: 100px; /* Fixed height */
+  padding: 8px; /* Padding */
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  margin-bottom: 10px; /* Space below the textarea */
+}
+
+/* Styling for the deadline date input */
+.card-deadline {
+  width: 100%; /* Full width */
+  padding: 8px; /* Padding */
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  margin-bottom: 10px; /* Space below the input */
+}

@@ -42,20 +42,29 @@ const Board = () => {
         <div>
           <input
             type="text"
+            className="list-input" // Apply the class for styling
             value={newListTitle}
             onChange={(e) => setNewListTitle(e.target.value)}
             placeholder="Enter list name"
           />
-          <button onClick={handleAddList}>Add List</button>
+          <button 
+            className="add-list-confirm-btn" // Apply the class for styling
+            onClick={handleAddList}
+          >
+            Add List
+          </button>
         </div>
       ) : (
-        <button onClick={() => setIsAddingList(true)} className="add-list-btn">
+        <button 
+          onClick={() => setIsAddingList(true)} 
+          className="add-list-btn"
+        >
           Add New List
         </button>
       )}
     </div>
   );
-      }
+      }  
   
 
 export default Board;
