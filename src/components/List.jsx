@@ -16,7 +16,7 @@ const List = ({ list, onAddCard }) => {
   return (
     <div className="list">
       <h3>{list.title}</h3>
-      {list.cards.map(card => <Card key={card.id} card={card} />)}
+      {list.cards.map(card => <Card key={card.id} cardData={card} />)}
 
       {isAddingCard ? (
         <div>

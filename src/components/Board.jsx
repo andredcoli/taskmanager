@@ -1,70 +1,42 @@
 import React, { useState } from 'react';
-import List from './List'; 
+import List from './List';
+import TopBar from './TopBar'; // Make sure to import TopBar
 
 const Board = () => {
-  const [lists, setLists] = useState([]);
-  const [isAddingList, setIsAddingList] = useState(false); // New state to track adding list mode
-  const [newListTitle, setNewListTitle] = useState("");
+    const [lists, setLists] = useState([{ id: 1, title: 'List 1', cards: [] }]);
 
-  const addList = () => {
-    const newList = { id: Date.now(), title: `List ${lists.length + 1}`, cards: [] };
-    setLists([...lists, newList]);
-  };
+    // Function to add a new card to the list
+    const onAddCard = (listId, cardTitle) => {
+        setLists(lists.map(list => {
+            if (list.id === listId) {
+                const updatedCards = [...list.cards, { id: Date.now(), title: cardTitle }];
+                return { ...list, cards: updatedCards };
+            }
+            return list;
+        }));
+    };
 
-  const addCardToList = (listId) => {
-    const newCard = { id: Date.now(), content: 'New Card' }; // Placeholder content
-    setLists(lists.map(list => {
-      if (list.id === listId) {
-        return { ...list, cards: [...list.cards, newCard] };
-      }
-      return list;
-    }));
-  };
-  //
+    // Add a function to delete the board
+    const deleteBoard = () => {
+        // Implement the logic to delete the board
+        console.log('Board deleted');
+        // Here you would typically handle the deletion logic such as updating state or making an API call
+        // For now, we'll just log to the console
+    };
 
-  const handleAddList = () => {
-    if (newListTitle.trim()) { // Check if the title is not just empty spaces
-      const newList = { id: Date.now(), title: newListTitle, cards: [] };
-      setLists([...lists, newList]);
-      setNewListTitle("");
-    }
-    setIsAddingList(false); // Reset back to not adding list mode
-  };
-  
-
-  return (
-    <div className="board">
-      {lists.map(list => (
-        <List key={list.id} list={list} onAddCard={addCardToList} />
-      ))}
-  
-      {isAddingList ? (
+    return (
         <div>
-          <input
-            type="text"
-            className="list-input" // Apply the class for styling
-            value={newListTitle}
-            onChange={(e) => setNewListTitle(e.target.value)}
-            placeholder="Enter list name"
-          />
-          <button 
-            className="add-list-confirm-btn" // Apply the class for styling
-            onClick={handleAddList}
-          >
-            Add List
-          </button>
+            {/* Include TopBar with the deleteBoard function */}
+            <TopBar deleteBoard={deleteBoard} />
+
+            {/* Map through each list and render it along with its cards */}
+            {lists.map(list => (
+                <List key={list.id} list={list} onAddCard={onAddCard} />
+            ))}
+
+            {/* Other board-related functionalities can be added here */}
         </div>
-      ) : (
-        <button 
-          onClick={() => setIsAddingList(true)} 
-          className="add-list-btn"
-        >
-          Add New List
-        </button>
-      )}
-    </div>
-  );
-      }  
-  
+    );
+};
 
 export default Board;

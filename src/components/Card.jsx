@@ -1,36 +1,37 @@
+// Card.js
 import React, { useState } from 'react';
+import CardDetailsModal from './CardDetailsModal';
 
-const Card = ({ card }) => {
-  const [showDetails, setShowDetails] = useState(false);
-  const [description, setDescription] = useState(card.description || '');
-  const [deadline, setDeadline] = useState(card.deadline || '');
 
-  const handleSaveDetails = () => {
-    // Logic to save description and deadline
-    setShowDetails(false);
-    // Note: Implement the logic to actually save these details in your state
+const Card = ({ cardData }) => {
+  // Check if cardData exists, otherwise set it to an empty object
+  const validatedCardData = cardData || {};
+
+  // Now we can safely use validatedCardData, knowing it won't be undefined
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [description, setDescription] = useState(validatedCardData.description || "");
+  const [deadline, setDeadline] = useState(validatedCardData.deadline || "");
+
+  const handleSave = () => {
+    // Here you would handle saving the details to cardData or state
+    console.log('Saving card details', { description, deadline });
+    // After saving you might want to update the cardData or inform the parent component
+    setModalOpen(false);
   };
 
   return (
-    <div className="card">
-      <p onClick={() => setShowDetails(true)}>{card.title}</p>
-      {showDetails && (
-        <div className="card-details">
-          <textarea 
-            className="card-description"
-            value={description} 
-            onChange={(e) => setDescription(e.target.value)} 
-            placeholder="Add a description"
-          />
-          <input 
-            type="date" 
-            className="card-deadline"
-            value={deadline} 
-            onChange={(e) => setDeadline(e.target.value)}
-          />
-          <button onClick={handleSaveDetails}>Save</button>
-        </div>
-      )}
+    // Add 'card' class to this div
+    <div className="card" onClick={() => setModalOpen(true)}>
+      <p>{validatedCardData.title || "No Title"}</p>
+      <CardDetailsModal
+        isOpen={isModalOpen}
+        onClose={() => setModalOpen(false)}
+        description={description} // Pass description as a prop
+        setDescription={setDescription} // Pass setDescription as a prop
+        deadline={deadline} // Pass deadline as a prop
+        setDeadline={setDeadline} // Pass setDeadline as a prop
+        onSave={handleSave}
+      />
     </div>
   );
 };
