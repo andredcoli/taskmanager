@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
-  background-color: #1E2839; /* Dark navy background */
+  background-color: #0d1116; /* Dark navy background */
   /* ... other styles ... */
 }
 
@@ -8,7 +10,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 5px 20px;
-  background-color: #007bff; 
+  background-color: #2A3B55; 
   color: white;
 }
 
@@ -103,9 +105,9 @@ body {
   background-color: #3C5068;;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px; /* Maximum width of the panels */
+  max-width: 350px; /* Maximum width of the panels */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -113,7 +115,7 @@ body {
 
 .form-control {
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   margin-bottom: 15px;
   border-radius: 4px;
   border: 1px solid #ddd;
@@ -121,19 +123,23 @@ body {
 }
 
 .login-btn, .register-btn {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   width: 100%;
   padding: 10px;
-  border-radius: 4px;
+  margin-top: 15px; /* Space above the switch button */
+  border-radius: px;
   border: none;
-  color: white;
-  background-color: #4B627F;
+  background-color: #122b25; /* Transparent background */
+  color: #198e72; /* Text color similar to the button background */
   cursor: pointer;
-  margin-bottom: 15px;
+  box-shadow: 0 3px #000000;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .login-btn:hover, .register-btn:hover {
-  background-color: #637DA0;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #133b32; /* Background color on hover */
+  color: #8cf58c; /* Text color on hover */
 }
 
 .switch-panel-btn {
@@ -148,20 +154,23 @@ body {
 
 
 .switch-btn {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   width: 100%;
   padding: 10px;
   margin-top: 15px; /* Space above the switch button */
-  border-radius: 4px;
-  border: 1px solid #4B627F; /* Border color similar to the button background */
-  background-color: #4B627F; /* Transparent background */
-  color: #fff; /* Text color similar to the button background */
+  border-radius: px;
+  border: none;
+  background-color: #122b25; /* Transparent background */
+  color: #198e72; /* Text color similar to the button background */
   cursor: pointer;
+  box-shadow: 0 3px #000000;
   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .switch-btn:hover {
-  background-color: #637DA0; /* Background color on hover */
-  color: white; /* Text color on hover */
+  background-color: #133b32; /* Background color on hover */
+  color: #8cf58c; /* Text color on hover */
 }
 
 /* YourBoards */
@@ -359,6 +368,8 @@ body {
   padding: 20px;
   border-radius: 5px;
 }
+
+
 
 /* DeleteConfirmationModal.css */
 
