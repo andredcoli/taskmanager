@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+
 body {
-  background-color: #0d1116; /* Dark navy background */
-  /* ... other styles ... */
+  background-image: url('/src/assets/bckg1.jpg'); /* Adjust the path as needed */
+  background-size: cover; /* Cover the entire space of the div */
+  background-position: center; /* Center the image */
+  width: 100%; /* Set desired width */
+  height: 100vh; /* Set desired height, for example, full viewport height */
 }
 
 .app-top-bar {
@@ -11,7 +15,7 @@ body {
   align-items: center;
   padding: 5px 20px;
   background-color: #2A3B55; 
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .app-title {
@@ -93,6 +97,7 @@ body {
 
 
 .login-container {
+  font-family: 'Roboto', sans-serif;
   color: white;
   display: flex;
   flex-direction: column;
@@ -102,10 +107,10 @@ body {
 }
 
 .login-panel, .registration-panel {
-  background-color: #3C5068;;
+  background-color: rgba(224, 224, 224, 0.05);
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0px;
+  box-shadow: 0 10px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 350px; /* Maximum width of the panels */
   margin: 0 auto;
@@ -114,15 +119,19 @@ body {
 }
 
 .form-control {
+  background-color: rgba(255, 255, 255, 1);
+  font-family: 'Roboto', sans-serif;
+  color: black;
   width: 100%;
-  padding: 5px;
-  margin-bottom: 15px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
+  padding: 6px;
+  margin-bottom: 10px;
+  border-radius: 0px;
+  border: 0px solid #ffffff;
   box-sizing: border-box;
 }
 
 .login-btn, .register-btn {
+  opacity: 1;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   width: 100%;
@@ -131,7 +140,7 @@ body {
   border-radius: px;
   border: none;
   background-color: #122b25; /* Transparent background */
-  color: #198e72; /* Text color similar to the button background */
+  color: #0febb5; /* Text color similar to the button background */
   cursor: pointer;
   box-shadow: 0 3px #000000;
   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
@@ -139,7 +148,7 @@ body {
 
 .login-btn:hover, .register-btn:hover {
   background-color: #133b32; /* Background color on hover */
-  color: #8cf58c; /* Text color on hover */
+  color: #0febb5; /* Text color on hover */
 }
 
 .switch-panel-btn {
@@ -162,7 +171,7 @@ body {
   border-radius: px;
   border: none;
   background-color: #122b25; /* Transparent background */
-  color: #198e72; /* Text color similar to the button background */
+  color: #0febb5; /* Text color similar to the button background */
   cursor: pointer;
   box-shadow: 0 3px #000000;
   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
@@ -170,68 +179,80 @@ body {
 
 .switch-btn:hover {
   background-color: #133b32; /* Background color on hover */
-  color: #8cf58c; /* Text color on hover */
+  color: #0febb5; /* Text color on hover */
 }
 
 /* YourBoards */
 
 .top-bar {
+  font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px 20px;
-  background-color: #2A3B55; 
+  background-color: rgba(224, 224, 224, 0.05);
   color: white;
+  box-shadow: 0px 0.1px 5px #000000;
 }
 
 .logout-btn {
+  opacity: 1;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   padding: 5px 10px;
   border-radius: 4px;
   border: none;
-  background-color: #4B627F;
-  color: white;
+  background-color: #4b0707; /* Transparent background */
+  color: #e40000; /* Text color similar to the button background */
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 3px #000000;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
 }
 
+
 .logout-btn:hover {
-  background-color: #637DA0;
-  color: white;
+  background-color: #660a0a;
+  color: #e40000;
 }
 
 .boards-container {
   max-width: 600px;
   margin: 40px auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 6px 50px rgba(0, 0, 0, 1);
   text-align: center;
   padding: 20px;
+  position: relative; /* Add relative positioning for absolute child positioning */
+  padding-top: 40px; /* Add padding to top to make room for the no-boards message */
 }
+
 
 .create-board-input {
   width: 30%; /* Adjust width as needed */
   padding: 8px;
   margin: 10px auto; /* Center the input field */
   display: block; /* Make it a block element */
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid #ffffff;
+  border-radius: 0px;
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .create-board-btn {
+  font-family: 'Roboto', sans-serif;
   width: 30%; /* Align width with input field */
   padding: 8px 5px;
   margin: 0 auto; /* Center the button */
   display: block; /* Make it a block element */
-  background-color: #4B627F; /* Theme color */
-  color: white; /* Text color */
-  border: none;
-  border-radius: 4px;
+  background-color: #122b25; /* Transparent background */
+  color: #0febb5; /* Text color similar to the button background */
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  border: none;
+  box-shadow: 0 3px #000000;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .create-board-btn:hover {
-  background-color: #637DA0; /* Darker shade on hover */
+  background-color: #133b32; /* Background color on hover */
+  color: #0febb5; /* Text color on hover */
 }
 
 .board-bar {
@@ -248,21 +269,28 @@ body {
 }
 
 .no-boards {
+  position: absolute; /* Position it absolutely within the .boards-container */
+  top: 0;
+  left: 0;
+  width: 100%; /* Take full width of the container */
   text-align: center;
-  margin-top: 20px;
+  margin-top: 0; /* Remove margin-top as it's now positioned absolutely */
+  padding-top: 10px; /* Add some padding at the top */
+  color: white; /* Assuming you want white text color */
 }
 
 .board-bar {
   padding: 10px;
   margin-bottom: 10px;
-  background-color: #f0f0f0;
+  background-color: #0febb5;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.4);
   cursor: grab;
 }
 
 .board-bar:hover {
-  background-color: #637DA0;
+  background-color: #038363;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .max-boards-msg {
